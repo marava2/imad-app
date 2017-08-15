@@ -49,5 +49,7 @@ list += '<li>'+names[i] + '</li>';
  ul.innerHTML = list;
         }
     }
-}
+};
+  request.open('GET','http://madhusudhanarava9.imad.hasura-app.io/submit-name?name='+name,true);
+    request.send(null);
 };
