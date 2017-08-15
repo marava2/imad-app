@@ -16,7 +16,7 @@ var img = document.getElementById('madi');
         //capture response and store ina variable
         
         //render variable to correct span
-        counter = counter +1;
+        counter = counter+1;
         var span = document.getElementById('count');
         span.innerHTML = counter.toString();
     };
