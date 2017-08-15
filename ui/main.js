@@ -10,7 +10,7 @@ var img = document.getElementById('madi');
     
    var button = document.getElementById('counter');
       var counter = 0;
-    button.onclick = function(){
+          button.onclick = function(){
         // make a req to counter
         
         //capture response and store ina variable
