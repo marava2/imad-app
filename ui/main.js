@@ -8,8 +8,8 @@ var img = document.getElementById('madi');
     img.style.marginLeft = '100px';
     };
     
-    var counter = 0;
-    var button = document.getElementById('counter');
+   var button = document.getElementById('counter');
+      var counter = 0;
     button.onclick = function(){
         // make a req to counter
         
@@ -17,7 +17,7 @@ var img = document.getElementById('madi');
         
         //render variable to correct span
         counter = counter +1;
-        var element = document.getElementById('count');
+        var span = document.getElementById('count');
         span.innerHTML = counter.toString();
         
     }
