@@ -8,7 +8,7 @@ var img = document.getElementById('madi');
     img.style.marginLeft = '100px';
     };
     
-    var couner = 0;
+    var counter = 0;
     var button = document.getElementById('counter');
     button.onclick = function(){
         // make a req to counter
