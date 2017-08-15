@@ -19,8 +19,7 @@ request.onreadystatechange= function(){
 };
 
 
-var nameInput = document.getElementById('name');
-var name = nameInput.value;
+
 var submit = document.getElementById('submit_btn');
 submit.onclick = function(){
 var names = ['name1','name2','name3','name4'];
@@ -32,7 +31,8 @@ list += '<li>'+names[i] + '</li>';
  ul.innerHTML = list;
 };
 
-
+var nameInput = document.getElementById('name');
+var name = nameInput.value;
 var submit1 = document.getElementById('submit_btn1');
 submit1.onclick = function(){
 var request = new XMLHttpRequest();
