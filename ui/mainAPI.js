@@ -31,8 +31,8 @@ list += '<li>'+names[i] + '</li>';
  ul.innerHTML = list;
 };
 
-var nameInput = document.getElementById('name');
-var name = nameInput.value;
+//var nameInput = document.getElementById('name');
+//var name = nameInput.value;
 var submit1 = document.getElementById('submit_btn1');
 submit1.onclick = function(){
 var request = new XMLHttpRequest();
@@ -50,6 +50,8 @@ list += '<li>'+names[i] + '</li>';
         }
     }
 };
+var nameInput = document.getElementById('name');
+var name = nameInput.value;
   request.open('GET','http://madhusudhanarava9.imad.hasura-app.io/submit-name?name='+name,true);
     request.send(null);
 };
