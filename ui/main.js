@@ -19,4 +19,4 @@ var img = document.getElementById('madi');
         counter = counter +1;
         var span = document.getElementById('count');
         span.innerHTML = counter.toString();
-    }
+    };
