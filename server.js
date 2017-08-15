@@ -29,6 +29,11 @@ app.get('/index.html', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+app.get('/indexAPI.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'indexAPI.html'));
+});
+
+
 app.get('/article-five', function (req, res) {
   res.send(createTemplate(articleOne));
 });
