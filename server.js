@@ -9,6 +9,7 @@ var Pool = require('pg').Pool; // DB CONNCECTION
 var config = {
     user : 'madhusudhanarava9',
     database : 'madhusudhanarava9',
+    host : 'db.imad.hasura-app.io',
     port : '5432',
     password : process.env.DB_PASSWORD
 };  // DB CONNCECTION
@@ -38,11 +39,11 @@ var counter = 0;
 var pool = new Pool(config);// DB CONNCECTION
 
 app.get('/test-db', function(req,res){
-     res.send(counter.toString());
-//pool.query('select * from test', function(err, result){
- //   if(err){res.status(500).send(err,toString());}
-  //  else {res.send(JSON.stringify(result));}
-//});
+    
+pool.query('select * from test', function(err, result){
+    if(err){res.status(500).send(err,toString());}
+    else {res.send(JSON.stringify(result));}
+});
 });// DB CONNCECTION
 
 app.get('/counter', function(req,res){
