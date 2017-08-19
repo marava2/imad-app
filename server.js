@@ -9,7 +9,7 @@ var Pool = require('pg').Pool; // DB CONNCECTION
 var config = {
     user : 'madhusudhanarava9',
     database : 'madhusudhanarava9',
-    port : '80',
+    port : '5432',
     password :process.env.DB_PASSWORD
 };  // DB CONNCECTION
 
