@@ -10,7 +10,7 @@ var config = {
     user : 'madhusudhanarava9',
     database : 'madhusudhanarava9',
     port : '5432',
-    password :process.env.DB=PASSWORD
+    password :process.env.DB_PASSWORD
 };  // DB CONNCECTION
 
 var articleOne = {
