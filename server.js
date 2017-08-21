@@ -36,10 +36,20 @@ function createTemplate(data){
 
 var counter = 0;
 
+function  hash(input, salt)
+{
+var hashed = crypto.pbkdf2Sync(input, salt, 1000,512,'shaS12');
+return.hashed.toString('hex');
+}
+
+app.get('/hash/:input', function(req,res){
+    var hashedString = hash(req.params.input,'this-is-a-random-string');
+    res.send(hashedString);
+    }); // Password hash response
+
 var pool = new Pool(config);// DB CONNCECTION
 
 app.get('/test-db', function(req,res){
-    
 pool.query('select * from test', function(err, result){
     if(err){res.status(500).send(err,toString());}
     else {res.send(JSON.stringify(result));}
