@@ -42,7 +42,8 @@ var counter = 0;
 function hash (input, salt)
 {
 var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'shaS12');
-return hashed.toString('hex');
+//return hashed.toString('hex');
+return ["pbkdf2","10000",salt,hashed.toString('hex')].join('$');
 } //  Hash Function
 
 app.get('/hash/:input', function(req,res){
