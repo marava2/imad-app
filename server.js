@@ -3,9 +3,11 @@ var morgan = require('morgan');
 var path = require('path');
 var crypto = require('crypto');// Hash Function
 var Pool = require('pg').Pool; // DB CONNCECTION
+var bodyParser = require('body-parser'); //User creation
 
 var app = express();
 app.use(morgan('combined'));
+app.use(bodyParser.json());  //User creation
 
 var config = {
     user : 'madhusudhanarava9',
@@ -47,6 +49,16 @@ app.get('/hash/:input', function(req,res){
 var hashedString = hash(req.params.input,'this-is-a-random-string');
     res.send(hashedString);
     }); // Password hash response
+    
+app.get('/create-user', function(req,res){
+    var username = req.body.username;
+    var password = req.body.password;
+pool.query('INSERT INTO "user" (username, password) VALUES($1,$2)', function(err, result){
+    if(err){res.status(500).send(err,toString());}
+    else {res.send('user successfully created :' + username);}
+});
+});// DB CONNCECTION
+
 
 var pool = new Pool(config);// DB CONNCECTION
 
