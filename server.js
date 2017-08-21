@@ -37,14 +37,14 @@ function createTemplate(data){
 
 var counter = 0;
 
-function  hash(input, salt)
+function hash (input, salt)
 {
 var hashed = crypto.pbkdf2Sync(input, salt, 1000, 512, 'shaS12');
 return hashed.toString('hex');
 } //  Hash Function
 
 app.get('/hash/:input', function(req,res){
-    var hashedString = hash(req.params.input,'this-is-a-random-string');
+var hashedString = hash(req.params.input,'this-is-a-random-string');
     res.send(hashedString);
     }); // Password hash response
 
