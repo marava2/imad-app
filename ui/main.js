@@ -5,7 +5,16 @@ var submit = document.getElementById('submitbtn');
 var request = new XMLHttpRequest();
 request.onreadystatechange= function(){
     if(request.readyState===XMLHttpRequest.DONE){
-         }
+        if(request.status===200){console.log('user logged in');
+            alert('Logged in successfully');
+        }
+        else if (request.status===403){
+            alert('username / password is invalid');
+        }
+        else if (request.status===500){
+            alert('something went wrong on the server');
+        }
+        }
 }
 };
 console.log('Loaded!');
