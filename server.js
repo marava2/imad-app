@@ -4,11 +4,15 @@ var path = require('path');
 var crypto = require('crypto');// Hash Function
 var Pool = require('pg').Pool; // DB CONNCECTION
 var bodyParser = require('body-parser'); //User creation
+var session = require('express-session'); //session creation
 
 var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());  //User creation
-
+app.use(session({
+    secret : 'somerandom secret value',
+    cookie : {maxAge : 1000*60*60*24*30
+}}));
 var config = {
     user : 'madhusudhanarava9',
     database : 'madhusudhanarava9',
