@@ -55,11 +55,27 @@ app.get('/create-user', function(req,res){
     var username = req.body.username;
     var password = req.body.password;
     var salt = crypto.getRandomBytes(128).toString('hex');
+       // var salt = crypto.randomBytes(128).toString('hex'); // DB Credentials storgare
     var dbString = hash(password,salt);
 pool.query('INSERT INTO "user" (username, password) VALUES($1,$2)',[username, dbstring], function(err, result){
     if(err){res.status(500).send(err,toString());}
     else {res.send('user successfully created :' + username);}
 });
+});// User Creation and Credentials Storaage in user table
+
+app.post('/login', function(req,res){
+    var username = req.body.username;
+    var password = req.body.password;
+pool.query('select * from  "user" where username = $1',[username], function(err, result){
+    if(err){res.status(500).send(err,toString());}
+    else {
+        if(result.rows.length ===0 ){res.status(403).send('username/password is invalid')}
+        else {
+             var dbString = result.rows[0].password;
+             var salt = dbString.split
+        }
+    }
+    });
 });// DB CONNCECTION
 
 
