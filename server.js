@@ -104,6 +104,11 @@ app.get('/check-login', function(req,res){
     {res.send('you are not logged in');}
 });// To check if session is authenticated
 
+app.get('/logout', function(req,res){
+    delete req.session.auth;
+       res.send('logged out');
+});// To check if session is logged out
+
 var pool = new Pool(config);// DB CONNCECTION
 
 app.get('/test-db', function(req,res){
