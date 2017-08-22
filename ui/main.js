@@ -15,7 +15,7 @@ request.onreadystatechange= function(){
             alert('something went wrong on the server');
         }
         }
-}
+};
 };
 console.log('Loaded!');
 var element = document.getElementById('main-text');
