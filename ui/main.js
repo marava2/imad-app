@@ -1,4 +1,5 @@
 console.log('Loaded!');
+alert ('Hi, am serverside scripting');
 var element = document.getElementById('main-text');
 element.innerHTML = 'new Value';
 var img = document.getElementById('madi');
