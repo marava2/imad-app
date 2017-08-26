@@ -77,7 +77,7 @@ app.post('/login', function(req,res){
        else {
             var dbString = result.rows[0].password;
             var salt = dbString.split('$')[2];
-            //var hashedPassword = hash(password,salt);
+            var hashedPassword = hash(password,salt);
                    }  
         }  
     });
