@@ -23,6 +23,9 @@ request.onreadystatechange= function(){
         else if (request.status===500){
             alert('something went wrong on the server');
         }
+        else if (request.status===502){
+            alert('something went Bad on the server');
+        }
         }
 };
 var username = document.getElementById("username").value;
