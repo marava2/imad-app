@@ -7,7 +7,7 @@ img.style.marginLeft = '100px'; };
 
 // entire code below is for authenticating the user
 
-var submit1 = document.getElementById('submitbtn');
+var submit = document.getElementById('submitbtn');
  submit.onclick = function(){
      // create a request object 
      // below is actually  done when we receive response from the request
