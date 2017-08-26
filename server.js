@@ -70,26 +70,23 @@ app.post('/create-user', function(req,res){
 app.post('/login', function(req,res){
     var username = req.body.username;
     var password = req.body.password;
-pool.query('select * from  "users" where username = $1',[username], function(err, result){
+  pool.query('select * from  "users" where username = $1',[username], function(err, result){
     if(err){res.status(500).send(err,toString());}
     else {
         if(result.rows.length ===0 ){res.send(403).send('username/password is invalid');}
-        else {
+       else {
             var dbString = result.rows[0].password;
              var salt = dbString.split('$')[2];
             var hashedPassword = hash(password,salt);
              if(hashedpassword ===dbString )
              {
                  // set the session
-                 //req.session.auth = {userid : result.rows[0].id}; // session
+                 req.session.auth = {userid : result.rows[0].id}; // session
                  // set cookie with a session id
                  //internally , on the server side, it maps session tot he object
                  //{auth: {userdid}}
-                 
                  res.send('credentials correct');
-                 
-                 
-             }
+                   }
              else {res.send(403).send('username/password is invalid');}
         }
     }
