@@ -58,13 +58,14 @@ var hashedString = hash(req.params.input,'this-is-a-random-string');
 app.post('/create-user', function(req,res){
     var username = req.body.username;
     var password = req.body.password;
+    res.send('user successfully created :' + username);
  //   var salt = crypto.getRandomBytes(128).toString('hex');
     // var salt = crypto.randomBytes(128).toString('hex'); // DB Credentials storgare
     //var dbString = hash(password,salt);
-pool.query('INSERT INTO "user" (username, password) VALUES ($1, $2)',[username, password], function(err, result){
-    if(err){res.status(500).send(err,toString());}
-    else {res.send('user successfully created :' + username);}
-});
+//pool.query('INSERT INTO "user" (username, password) VALUES ($1, $2)',[username, password], function(err, result){
+    //if(err){res.status(500).send(err,toString());}
+  //  else {res.send('user successfully created :' + username);}
+//});
 });// User Creation and Credentials Storaage in user table
 
 app.post('/login', function(req,res){
