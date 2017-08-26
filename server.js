@@ -78,17 +78,7 @@ app.post('/login', function(req,res){
             var dbString = result.rows[0].password;
             // var salt = dbString.split('$')[2];
             //var hashedPassword = hash(password,salt);
-             if(password ===dbString )
-             {
-                 // set the session
-               //  req.session.auth = {userid : result.rows[0].id}; // session
-                 // set cookie with a session id
-                 //internally , on the server side, it maps session tot he object
-                 //{auth: {userdid}}
-                 res.send('credentials correct');
-                   }
-             else {res.send(403).send('username/password is invalid');}
-        }  
+                   }  
         }  
     });
 });// DB CONNCECTION
