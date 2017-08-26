@@ -2,7 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var crypto = require('crypto');// Hash Function
-var pool = require('pg').Pool; // DB CONNCECTION
+var Pool = require('pg').Pool; // DB CONNCECTION
 var bodyParser = require('body-parser'); //User creation
 var session = require('express-session'); //session creation
 
