@@ -10,7 +10,7 @@ app.use(morgan('combined'));
 app.use(bodyParser.json());  //User creation
 app.use(session({
     secret : 'somerandom secret value',
-    cookie : {maxAge : 1000*60*60*24*30
+    cookie : {maxAge: 1000*60*60*24*30
 }}));
 
 var config = {
@@ -81,7 +81,7 @@ app.post('/login', function(req,res){
               if(hashedPassword === dbString )
              {
                  // set the session
-               req.session.auth = {userid : result.rows[0].id}; // session
+               req.session.auth = {userId : result.rows[0].id}; // session
                  // set cookie with a session id
                  //internally , on the server side, it maps session tot he object
                  //{auth: {userdid}}
