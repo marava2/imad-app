@@ -74,25 +74,9 @@ app.post('/login', function(req,res){
 pool.query('select * from  "user" where username = $1',[username], function(err, result){
     if(err){res.status(500).send(err,toString());}
     else {
-        if(result.rows.length ===0 ){res.status(403).send('username/password is invalid');}
-        else {
-             var dbString = result.rows[0].password;
-             var salt = dbString.split('$')[2];
-             var hashedPassword = hash(password,salt);
-             if(hashedPassword ===dbString )
-             {
-                 // set the session
-                 req.session.auth = {userid : result.rows[0].id}; // session
-                 // set cookie with a session id
-                 //internally , on the server side, it maps session tot he object
-                 //{auth: {userdid}}
-                 
-                 res.send('credentials correct');
-                 
-                 
-             }
-             else {res.status(403).send('username/password is invalid');}
-        }
+        if(result.rows.length ===0 ){res.send(403).send('username/password is invalid');}
+        else { res.send('credentials correct');
+                    }
     }
     });
 });// DB CONNCECTION
