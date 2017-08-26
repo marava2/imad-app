@@ -58,8 +58,8 @@ var hashedString = hash(req.params.input,'this-is-a-random-string');
 app.post('/create-user', function(req,res){
     var username = req.body.username;
     var password = req.body.password;
-    var salt = crypto.getRandomBytes(128).toString('hex');
-    //   var salt = crypto.randomBytes(128).toString('hex'); // DB Credentials storgare
+ //   var salt = crypto.getRandomBytes(128).toString('hex');
+     var salt = crypto.randomBytes(128).toString('hex'); // DB Credentials storgare
     var dbString = hash(password,salt);
 pool.query('INSERT INTO "user" (username, password) VALUES($1,$2)',[username, dbString], function(err, result){
     if(err){res.status(500).send(err,toString());}
