@@ -88,7 +88,8 @@ app.post('/login', function(req,res){
                  res.send('credentials correct');
                    }
              else {res.send(403).send('username/password is invalid');}
-        }    }  
+        }   
+        }  
     });
 });// DB CONNCECTION
 
