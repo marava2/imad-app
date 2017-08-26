@@ -81,7 +81,7 @@ pool.query('select * from  "users" where username = $1',[username], function(err
              if(hashedpassword ===dbString )
              {
                  // set the session
-                 req.session.auth = {userid : result.rows[0].id}; // session
+                 //req.session.auth = {userid : result.rows[0].id}; // session
                  // set cookie with a session id
                  //internally , on the server side, it maps session tot he object
                  //{auth: {userdid}}
